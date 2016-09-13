@@ -1,6 +1,8 @@
-import pandas.io.data as web
-import datetime
-start = datetime.datetime(2010, 1, 1)
-end = datetime.datetime(2013, 1, 27)
-f = web.DataReader("F", 'yahoo', start, end)
-f.ix['2010-01-04']
+#from pandas.io.data import DataReader
+from pandas_datareader import data
+from datetime import datetime
+
+aapl = data.DataReader('AAPL', 'yahoo', '1980-01-01')
+print(aapl.til())
+
+aapl.to_csv('/Users/chrislattanzio/Python/Mkt_Data/aapl_data.csv')
